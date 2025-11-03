@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crafty — Handmade Crochets</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --muted: #8aa39a;
+  --accent: #e9dfe0;
+  --card: #ffffffaa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(180deg, #fdeff0 0%, #fff 40%);
+  color: #333;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+body.fade-in { opacity: 1; }
+
+/* Header layout */
+.topbar {
+  background: #f3efe6;
+  height: 100px;
+  padding: 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+/* Logo container */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  overflow: visible;
+  text-decoration: none;
+}
+
+/* Hover effect for logo */
+.logo:hover {
+  opacity: 0.9;
+  transition: 0.2s ease-in-out;
+}
+
+/* Circle container for logo */
+.logo .logo-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: 2px solid rgba(0,0,0,0.05);
+  background: transparent;
+  flex-shrink: 0;
+}
+
+/* Image inside circle */
+.logo .logo-circle img {
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  transform: translate(-50%, -50%) scale(2.02);
+  transform-origin: center;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Brand name styling */
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #6b5a59;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+}
+
+/* Navigation and right section */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+nav a {
+  color: #555;
+  text-decoration: none;
+  padding: 6px 8px;
+  font-weight: 600;
+}
+
+/* Search bar only */
+.search-bar {
+  border: 1.5px solid #ccc;
+  border-radius: 20px;
+  padding: 6px 12px;
+  width: 180px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+.search-bar:focus {
+  border-color: #8aa39a;
+  box-shadow: 0 0 4px rgba(138,163,154,0.4);
+}
+
+/* Cart icon */
+.cart-icon {
+  font-size: 22px;
+  cursor: pointer;
+  color: #6b5a59;
+}
+
+/* Empty green box */
+.megamenu {
+  background: var(--muted);
+  color: #fff;
+  padding: 22px 28px;
+  height: 120px;
+}
+
+/* Product section */
+.hero-strip { background: #f7f1f2; padding: 30px 28px; }
+.container { max-width: 1100px; margin: auto; padding: 28px; }
+.title {
+  font-family: 'Playfair Display';
+  text-align: center;
+  font-size: 32px;
+  color: #6b5a59;
+  margin-bottom: 8px;
+}
+.subtitle {
+  text-align: center;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* 🔹 Make products scrollable horizontally */
+.grid {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 12px;
+}
+.grid::-webkit-scrollbar { height: 8px; }
+.grid::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+.grid::-webkit-scrollbar-thumb:hover { background-color: #aaa; }
+
+.card {
+  flex: 0 0 240px;
+  background: var(--card);
+  backdrop-filter: blur(4px);
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+  text-align: center;
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.card h5 { margin: 10px 0 6px; font-size: 14px; }
+.price { font-weight: 700; color: #555; }
+
+footer { padding: 32px 28px; text-align: center; color: #7a6b6c; font-size: 14px; }
+
+@media (max-width: 720px) { .grid { gap: 12px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <!-- ✅ Clickable logo linking to profile -->
+    <a href="news.html" class="logo">
+      <div class="logo-circle">
+        <img src="7383c488-6caf-4d42-ae91-a15710dfc498-removebg-preview.png" alt="LIKHA">
+      </div>
+      <div>
+        <div class="brand-name">L I K H A</div>
+        <div style="font-size:13px;color:#8b8b8b">AGAY AGAY.</div>
+      </div>
+    </a>
+    
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <input type="text" class="search-bar" placeholder="Search...">
+      <div class="cart-icon">🛒</div>
+    </nav>
+  </div>
+
+  <div class="megamenu"></div>
+</header>
+
+<main>
+  <div class="hero-strip">
+    <div class="container">
+      <h2 class="title">P R O D U C T S</h2>
+      <p class="subtitle">Handmade crochet items &amp; flowers — perfect for gifts and cozy days</p>
+
+      <div class="grid">
+        <div class="card">
+          <img src="Flower purple.jpg" style="object-position: 40% 60%;">
+          <h5>Cozy Flower</h5>
+          <div class="price">$34.00</div>
+        </div>
+
+        <div class="card">
+          <img src="Flower (Blue).jpg" style="object-position: 40% 30%;">
+          <h5>Handmade Blue Flower</h5>
+          <div class="price">$28.00</div>
+        </div>
+
+        <div class="card">
+          <img src="Flower pink.jpg" style="object-position: 40% 30%;">
+          <h5>Crochet pink Flower</h5>
+          <div class="price">$34.00</div>
+        </div>
+
+        <div class="card">
+          <img src="Flower w pot.jpg" style="object-position: center 60%;">
+          <h5>Crochet Potted Flower </h5>
+          <div class="price">$22.00</div>
+        </div>
+
+        <div class="card">
+          <img src="whitespidey.jpg" style="object-position: 40% 80%;">
+          <h5>Crochet W/P Spidey </h5>
+          <div class="price">$18.00</div>
+        </div>
+
+        <div class="card">
+          <img src="Spideyblack.jpg" style="object-position: 40% 50%;">
+          <h5>Crochet B/R Spidey</h5>
+          <div class="price">$15.00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>© 2025 Crafty — handmade crochets. All rights reserved.</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  requestAnimationFrame(() => body.classList.add("fade-in"));
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    const url = link.getAttribute('href');
+    if (url && !url.startsWith('#') && !url.startsWith('mailto:') && !url.startsWith('tel:')) {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        body.classList.remove("fade-in");
+        body.style.opacity = 0;
+        setTimeout(() => { window.location.href = url; }, 200);
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
